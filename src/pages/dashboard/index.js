@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { Container, Nav, Navbar, Table } from "react-bootstrap";
@@ -59,3 +60,19 @@ export default function Dashboard() {
     </>
   );
 }
+=======
+import React from "react";
+import { Container } from "react-bootstrap";
+import SBreadcrumb from "../../components/Breadcrumb";
+
+export default function DashboardPage() {
+  return (
+    <>
+      <Container className="mt-3">
+        <SBreadcrumb />
+        <h1>Dashboard</h1>
+      </Container>
+    </>
+  );
+}
+>>>>>>> ca6655a5e725eddafaaff36ca2644728335e448f
