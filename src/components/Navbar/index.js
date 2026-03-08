@@ -32,7 +32,7 @@ function SNavbar() {
   };
 
   return (
-    <Navbar bg="dark" variant="dark">
+    <Navbar bg="dark" data-bs-theme="dark">
       <Container>
         <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
         <Nav className="me-auto">
