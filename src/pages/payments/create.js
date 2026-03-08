@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setNotif } from "../../redux/notif/actions";
 
-function PaymentsCreate() {
+export default function PaymentsCreate() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [form, setForm] = useState({
@@ -129,5 +129,3 @@ function PaymentsCreate() {
     </Container>
   );
 }
-
-export default PaymentsCreate;

@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setNotif } from "../../redux/notif/actions";
 
-function PaymentsEdit() {
+export default function PaymentsEdit() {
   const { paymentId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -147,5 +147,3 @@ function PaymentsEdit() {
     </Container>
   );
 }
-
-export default PaymentsEdit;
