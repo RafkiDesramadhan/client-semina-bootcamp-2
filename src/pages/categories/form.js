@@ -1,4 +1,3 @@
-import React from "react";
 import { Form } from "react-bootstrap";
 import SButton from "../../components/Button";
 import TextInputWithLabel from "../../components/TextInputWithLabel";
@@ -13,15 +12,15 @@ export default function CategoriesForm({
   return (
     <Form>
       <TextInputWithLabel
-        placeholder="Masukkan nama kategori"
-        label="Nama kategori"
+        placeholder={"Masukan nama kategori"}
+        label={"Nama kategori"}
         name="name"
         value={form.name}
         type="text"
         onChange={handleChange}
       />
       <SButton variant="primary" action={handleSubmit} loading={isLoading}>
-        {edit ? "Edit" : "Save"}
+        {edit ? "Ubah" : "Simpan"}
       </SButton>
     </Form>
   );

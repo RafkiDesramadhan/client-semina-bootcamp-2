@@ -1,41 +1,41 @@
 export const accessCategories = {
-  find: ["organizer"],
-  add: ["organizer"],
+  lihat: ["organizer"],
+  tambah: ["organizer"],
   edit: ["organizer"],
-  delete: ["organizer"],
+  hapus: ["organizer"],
 };
 
 export const accessTalents = {
-  find: ["organizer"],
-  add: ["organizer"],
+  lihat: ["organizer"],
+  tambah: ["organizer"],
   edit: ["organizer"],
-  delete: ["organizer"],
+  hapus: ["organizer"],
 };
 
 export const accessEvents = {
-  find: ["organizer"],
-  add: ["organizer"],
+  lihat: ["organizer"],
+  tambah: ["organizer"],
   edit: ["organizer"],
-  delete: ["organizer"],
+  hapus: ["organizer"],
 };
 
-export const accessParticipants = {
-  find: ["organizer"],
-  add: ["organizer"],
+export const accessParticipant = {
+  lihat: ["organizer"],
+  tambah: ["organizer"],
   edit: ["organizer"],
-  delete: ["organizer"],
+  hapus: ["organizer"],
 };
 
 export const accessPayments = {
-  find: ["organizer"],
-  add: ["organizer"],
+  lihat: ["organizer"],
+  tambah: ["organizer"],
   edit: ["organizer"],
-  delete: ["organizer"],
+  hapus: ["organizer"],
 };
 
 export const accessOrders = {
-  find: ["organizer", "admin", "owner"],
-  add: ["organizer", "admin", "owner"],
+  lihat: ["organizer", "admin", "owner"],
+  tambah: ["organizer", "admin", "owner"],
   edit: ["organizer", "admin", "owner"],
-  delete: ["organizer", "admin", "owner"],
+  hapus: ["organizer", "admin", "owner"],
 };

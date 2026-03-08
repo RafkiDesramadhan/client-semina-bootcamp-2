@@ -4,7 +4,7 @@ import {
   ERROR_FETCHING_CATEGORIES,
 } from "./constants";
 
-const statusList = {
+const statuslist = {
   idle: "idle",
   process: "process",
   success: "success",
@@ -13,21 +13,24 @@ const statusList = {
 
 const initialState = {
   data: [],
-  status: statusList.idle,
+  status: statuslist.idle,
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case START_FETCHING_CATEGORIES:
-      return { ...state, status: statusList.process };
+      return { ...state, status: statuslist.process };
+
     case ERROR_FETCHING_CATEGORIES:
-      return { ...state, status: statusList.error };
+      return { ...state, status: statuslist.error };
+
     case SUCCESS_FETCHING_CATEGORIES:
       return {
         ...state,
-        status: statusList.success,
+        status: statuslist.success,
         data: action.categories,
       };
+
     default:
       return state;
   }

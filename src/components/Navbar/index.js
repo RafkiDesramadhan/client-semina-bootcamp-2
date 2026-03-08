@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import NavAccess from "../NavAccess";
+import NavLink from "../NavAccess";
 import { useNavigate } from "react-router-dom";
 import {
   accessCategories,
   accessTalents,
   accessEvents,
-  accessParticipants,
+  accessParticipant,
   accessPayments,
   accessOrders,
 } from "../../const/access";
 
-export default function SNavbar() {
+function SNavbar() {
   const navigate = useNavigate();
   const [role, setRole] = useState(null);
 
@@ -34,57 +34,64 @@ export default function SNavbar() {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand>Dashboard</Navbar.Brand>
+        <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
         <Nav className="me-auto">
-          <NavAccess
+          <NavLink
             role={role}
-            roles={accessCategories.find}
+            roles={accessCategories.lihat}
             action={() => navigate("/")}
           >
             Home
-          </NavAccess>
-          <NavAccess
+          </NavLink>
+          <NavLink
             role={role}
-            roles={accessCategories.find}
+            roles={accessCategories.lihat}
             action={() => navigate("/categories")}
           >
             Categories
-          </NavAccess>
-          <NavAccess
+          </NavLink>
+          <NavLink
             role={role}
-            roles={accessTalents.find}
+            roles={accessTalents.lihat}
             action={() => navigate("/talents")}
           >
             Talents
-          </NavAccess>
-          <NavAccess
+          </NavLink>
+          <NavLink
             role={role}
-            roles={accessPayments.find}
+            roles={accessPayments.lihat}
             action={() => navigate("/payments")}
           >
             Payment
-          </NavAccess>
-          <NavAccess
+          </NavLink>
+          {/* <NavLink
             role={role}
-            roles={accessEvents.find}
+            roles={organizers.lihat}
+            action={() => navigate('/organizers')}
+          >
+            Oranizer
+          </NavLink> */}
+          <NavLink
+            role={role}
+            roles={accessEvents.lihat}
             action={() => navigate("/events")}
           >
             Events
-          </NavAccess>
-          <NavAccess
+          </NavLink>
+          <NavLink
             role={role}
-            roles={accessParticipants.find}
+            roles={accessParticipant.lihat}
             action={() => navigate("/participant")}
           >
             Participant
-          </NavAccess>
-          <NavAccess
+          </NavLink>
+          <NavLink
             role={role}
-            roles={accessOrders.find}
+            roles={accessOrders.lihat}
             action={() => navigate("/orders")}
           >
             Orders
-          </NavAccess>
+          </NavLink>
         </Nav>
         <Nav className="justify-content-end">
           <Nav.Link onClick={() => handleLogout()}>Logout</Nav.Link>
@@ -93,3 +100,5 @@ export default function SNavbar() {
     </Navbar>
   );
 }
+
+export default SNavbar;
