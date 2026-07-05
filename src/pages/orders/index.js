@@ -3,11 +3,11 @@ import { Col, Container, Row } from "react-bootstrap";
 import BreadCrumb from "../../components/Breadcrumb";
 import Table from "../../components/TableWithAction";
 import SearchInput from "../../components/SearchInput";
+import AlertMessage from "../../components/Alert";
+import DateRange from "../../components/InputDate";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchOrders, setPage, setDate } from "../../redux/orders/actions";
-import AlertMessage from "../../components/Alert";
 import { fetchListEvents } from "../../redux/lists/actions";
-import DateRange from "../../components/InputDate";
 import { formatDate } from "../../utils/formatDate";
 
 export default function OrderPage() {
@@ -35,14 +35,20 @@ export default function OrderPage() {
       <BreadCrumb textSecound={"orders"} />
       <Row>
         <Col
-          className="cursor-pointer position-relative"
-          onClick={() => setIsShowed(true)}
+          className="cursor pointer position-relative"
+          onMouseDown={(e) => {
+            e.stopPropagation();
+            setIsShowed(true);
+          }}
         >
-          <SearchInput disabled query={displayDate} />
+          <div style={{ pointerEvents: "none" }}>
+            <SearchInput disabled query={displayDate} />
+          </div>
+
           {isShowed ? (
             <DateRange
               date={orders.date}
-              setIsShowed={() => setIsShowed(!isShowed)}
+              setIsShowed={setIsShowed}
               onChangeDate={(ranges) => dispatch(setDate(ranges.selection))}
             />
           ) : (

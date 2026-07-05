@@ -1,38 +1,43 @@
 import * as React from "react";
-import { DateRange } from "react-date-range";
+import DatePicker from "react-datepicker";
 
 export default function IndexDate({ date, onChangeDate, setIsShowed }) {
-  React.useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  });
-
   const refDate = React.useRef(null);
-  const handleClickOutside = (event) => {
-    if (refDate && !refDate.current.contains(event.target)) {
+
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (refDate.current && !refDate.current.contains(event.target)) {
+        setIsShowed(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [setIsShowed]);
+
+  const handleOnChange = (dates) => {
+    const [start, end] = dates;
+    onChangeDate({
+      selection: {
+        startDate: start,
+        endDate: end,
+        key: "selection",
+      },
+    });
+
+    if (start && end) {
       setIsShowed(false);
     }
   };
 
-  const check = (focus) => {
-    focus.indexOf(1) < 0 && setIsShowed(false);
-  };
-
   return (
-    <div
-      className="position-absolute"
-      // style={{ top: '59px' }}
-      style={{ zIndex: "1" }}
-      ref={refDate}
-    >
-      <DateRange
-        editableDateInputs={true}
-        onChange={onChangeDate}
-        moveRangeOnFirstSelection={false}
-        onRangeFocusChange={check}
-        ranges={[date]}
+    <div className="position-absolute" style={{ zIndex: "999" }} ref={refDate}>
+      <DatePicker
+        selected={date?.startDate}
+        startDate={date?.startDate}
+        endDate={date?.endDate}
+        onChange={handleOnChange}
+        selectsRange
+        inline
         maxDate={new Date()}
       />
     </div>
