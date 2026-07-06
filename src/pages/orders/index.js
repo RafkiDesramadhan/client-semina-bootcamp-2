@@ -13,7 +13,6 @@ import { formatDate } from "../../utils/formatDate";
 export default function OrderPage() {
   const dispatch = useDispatch();
 
-  const notif = useSelector((state) => state.notif);
   const orders = useSelector((state) => state.orders);
 
   let [isShowed, setIsShowed] = React.useState(false);
@@ -35,6 +34,7 @@ export default function OrderPage() {
       <BreadCrumb textSecound={"orders"} />
       <Row>
         <Col
+          sm={4}
           className="cursor pointer position-relative"
           onMouseDown={(e) => {
             e.stopPropagation();
@@ -55,13 +55,7 @@ export default function OrderPage() {
             ""
           )}
         </Col>
-        <Col></Col>
-        <Col></Col>
       </Row>
-
-      {notif.status && (
-        <AlertMessage type={notif.typeNotif} message={notif.message} />
-      )}
 
       <Table
         status={orders.status}
