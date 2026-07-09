@@ -183,7 +183,7 @@ function EventsCreate() {
     let _temp = [...form.tickets];
     _temp.push({
       type: "",
-      status: "",
+      statusTicketCategories: "",
       stock: "",
       price: "",
     });

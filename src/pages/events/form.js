@@ -202,7 +202,7 @@ export default function EventsForm({
               placeholder={"Masukan status"}
               label={"Status"}
               name="status"
-              value={tic.status}
+              value={tic.statusTicketCategories}
               type="text"
               onChange={(e) => handleChangeTicket(e, index)}
             />
