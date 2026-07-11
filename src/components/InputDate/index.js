@@ -1,5 +1,9 @@
 import * as React from "react";
-import DatePicker from "react-datepicker";
+import DatePicker, { registerLocale } from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
+import { id } from "date-fns/locale/id";
+registerLocale("id", id);
 
 export default function IndexDate({ date, onChangeDate, setIsShowed }) {
   const refDate = React.useRef(null);
@@ -39,6 +43,11 @@ export default function IndexDate({ date, onChangeDate, setIsShowed }) {
         selectsRange
         inline
         maxDate={new Date()}
+        locale="id"
+        showMonthDropdown
+        showYearDropdown
+        isClearable
+        dropdownMode="select"
       />
     </div>
   );
