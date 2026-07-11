@@ -8,6 +8,7 @@ export default function TextInputWithLabel({
   type,
   onChange,
   placeholder,
+  required,
 }) {
   return (
     <Form.Group className="mb-2">

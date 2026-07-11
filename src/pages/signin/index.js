@@ -28,7 +28,9 @@ export default function PageSignin() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     setIsLoading(true);
     try {
       const res = await postData("/cms/auth/signin", form);
@@ -48,12 +50,12 @@ export default function PageSignin() {
 
   return (
     <Container md={12} className="my-5">
-      <div className="m-auto" style={{ width: "50%" }}>
-        {alert.status && <SAlert type={alert.type} message={alert.message} />}
-      </div>
-      <Card style={{ width: "50%" }} className="m-auto mt-5">
-        <Card.Body>
-          <Card.Title className="text-center">Form Signin</Card.Title>
+      <Card style={{ maxWidth: "450px" }} className="m-auto mt-5 shadow-sm">
+        <Card.Body className="p-4">
+          <Card.Title className="text-center mb-4 fw-bold">Sign in</Card.Title>
+
+          {alert.status && <SAlert type={alert.type} message={alert.message} />}
+
           <SForm
             form={form}
             handleChange={handleChange}
